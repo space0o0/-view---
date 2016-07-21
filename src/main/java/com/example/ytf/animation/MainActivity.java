@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.text)
     TextView textView;
 
-    Animation animation_scale;
+    Animation animation_scale_xml,animation_scale_code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void init(){
-        animation_scale= AnimationUtils.loadAnimation(this,R.anim.scaleanim);
+        animation_scale_xml = AnimationUtils.loadAnimation(this,R.anim.scaleanim);
+        animation_scale_code=new ScaleAnimation(2.0f,1.0f,2.0f,1.0f,ScaleAnimation.RELATIVE_TO_PARENT,0.2f,ScaleAnimation.RELATIVE_TO_PARENT,0.2f);
+        animation_scale_code.setDuration(2000);
     }
 
     public void onclick(){
@@ -51,9 +54,12 @@ public class MainActivity extends AppCompatActivity {
         btScale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.startAnimation(animation_scale);
+//                textView.startAnimation(animation_scale_xml);
+                textView.startAnimation(animation_scale_code);
             }
         });
+
+
 
     }
 
