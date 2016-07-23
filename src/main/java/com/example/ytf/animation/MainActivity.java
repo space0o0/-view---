@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void init(){
         animation_scale_xml = AnimationUtils.loadAnimation(this,R.anim.scaleanim);
-        animation_scale_code=new ScaleAnimation(2.0f,1.0f,2.0f,1.0f,ScaleAnimation.RELATIVE_TO_PARENT,0.2f,ScaleAnimation.RELATIVE_TO_PARENT,0.2f);
+        animation_scale_code=new ScaleAnimation(2.0f,1.0f,2.0f,1.0f,ScaleAnimation.RELATIVE_TO_SELF,1f,ScaleAnimation.RELATIVE_TO_SELF,1f);
         animation_scale_code.setDuration(2000);
     }
 
